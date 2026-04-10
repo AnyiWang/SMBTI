@@ -7,14 +7,46 @@ const LEVEL_CLASS = { L: 'level-low', M: 'level-mid', H: 'level-high' }
 /**
  * 渲染测试结果
  */
-export function renderResult(result, userLevels, dimOrder, dimDefs, config) {
+export function renderResult(result, userLevels, dimOrder, dimDefs, config, smbti) {
   const { primary, secondary, rankings, mode } = result
+
+  // ── SMBTI 融合区块 ──
+  const fusionSection = document.getElementById('fusion-section')
+  if (smbti && fusionSection) {
+    fusionSection.style.display = ''
+    document.getElementById('fusion-name').textContent = smbti.fusion.name
+    document.getElementById('fusion-formula').textContent = `${smbti.mbti.type} × ${primary.code}`
+    document.getElementById('fusion-subtitle').textContent = smbti.fusion.subtitle
+    document.getElementById('fusion-desc').textContent = smbti.fusionDesc
+    const mbtiBar = document.getElementById('mbti-bars')
+    if (mbtiBar) {
+      const p = smbti.mbti.percentages
+      const dims = [
+        { left: 'E', right: 'I', pct: p.E },
+        { left: 'N', right: 'S', pct: p.N },
+        { left: 'T', right: 'F', pct: p.T },
+        { left: 'J', right: 'P', pct: p.J },
+      ]
+      mbtiBar.innerHTML = dims.map((d) => `
+        <div class="mbti-bar-row">
+          <span class="mbti-letter ${d.pct >= 50 ? 'mbti-active' : ''}">${d.left} ${d.pct}%</span>
+          <div class="mbti-bar-track"><div class="mbti-bar-fill" style="width: ${d.pct}%"></div></div>
+          <span class="mbti-letter ${d.pct < 50 ? 'mbti-active' : ''}">${100 - d.pct}% ${d.right}</span>
+        </div>`).join('')
+    }
+    const mbtiTag = document.getElementById('mbti-type-tag')
+    if (mbtiTag) {
+      mbtiTag.textContent = `${smbti.mbtiTypeInfo.code} · ${smbti.mbtiTypeInfo.cn} — "${smbti.mbtiTypeInfo.tagline}"`
+    }
+  } else if (fusionSection) {
+    fusionSection.style.display = 'none'
+  }
 
   // Kicker
   const kicker = document.getElementById('result-kicker')
   if (mode === 'drunk') kicker.textContent = '隐藏人格已激活'
   else if (mode === 'fallback') kicker.textContent = '系统强制兜底'
-  else kicker.textContent = '你的主类型'
+  else kicker.textContent = '你的 SBTI 类型'
 
   // 主类型
   document.getElementById('result-code').textContent = primary.code
@@ -85,7 +117,7 @@ export function renderResult(result, userLevels, dimOrder, dimDefs, config) {
   // 下载分享图
   const btnDownload = document.getElementById('btn-download')
   btnDownload.onclick = () => {
-    generateShareImage(primary, userLevels, dimOrder, dimDefs, mode)
+    generateShareImage(primary, userLevels, dimOrder, dimDefs, mode, smbti)
   }
 
   // 复制 AI Agent 命令

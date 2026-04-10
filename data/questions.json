@@ -45,15 +45,24 @@
       "options": [
         {
           "label": "不认同",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "SN": -1
+          }
         },
         {
           "label": "中立",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "SN": 0
+          }
         },
         {
           "label": "认同",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "SN": 1
+          }
         }
       ]
     },
@@ -64,15 +73,24 @@
       "options": [
         {
           "label": "不认同",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "SN": -1
+          }
         },
         {
           "label": "中立",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "SN": 0
+          }
         },
         {
           "label": "认同",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "SN": 1
+          }
         }
       ]
     },
@@ -121,15 +139,24 @@
       "options": [
         {
           "label": "拉稀不可能5小时，也许ta隐瞒了我。",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "TF": -1
+          }
         },
         {
           "label": "在信任和怀疑之间摇摆。",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "TF": 0
+          }
         },
         {
           "label": "也许今天ta真的不太舒服。",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "TF": 1
+          }
         }
       ]
     },
@@ -140,15 +167,24 @@
       "options": [
         {
           "label": "是的",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "TF": -1
+          }
         },
         {
           "label": "偶尔",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "TF": 0
+          }
         },
         {
           "label": "不是",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "TF": 1
+          }
         }
       ]
     },
@@ -159,15 +195,24 @@
       "options": [
         {
           "label": "并没有",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "TF": 1
+          }
         },
         {
           "label": "也许？",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "TF": 0
+          }
         },
         {
           "label": "是的！（问心无愧骄傲脸）",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "TF": -1
+          }
         }
       ]
     },
@@ -178,15 +223,24 @@
       "options": [
         {
           "label": "就算ta再优秀我也不会陷入太深。",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "TF": 1
+          }
         },
         {
           "label": "会介于A和C之间。",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "TF": 0
+          }
         },
         {
           "label": "会非常珍惜ta，也许会变成恋爱脑。",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "TF": -1
+          }
         }
       ]
     },
@@ -235,15 +289,24 @@
       "options": [
         {
           "label": "其实邪恶的人心比世界上的痔疮更多。",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "SN": -1
+          }
         },
         {
           "label": "也许吧。",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "SN": 0
+          }
         },
         {
           "label": "是的，我愿相信好人更多。",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "SN": 1
+          }
         }
       ]
     },
@@ -254,15 +317,24 @@
       "options": [
         {
           "label": "呜呜她真好真可爱！居然给我棒棒糖！",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "SN": 1
+          }
         },
         {
           "label": "一脸懵逼，作挠头状",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "SN": 0
+          }
         },
         {
           "label": "这也许是一种新型诈骗？还是走开为好。",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "SN": -1
+          }
         }
       ]
     },
@@ -273,15 +345,24 @@
       "options": [
         {
           "label": "翘了！反正就一次！",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "JP": 1
+          }
         },
         {
           "label": "干脆请个假吧。",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "JP": 0
+          }
         },
         {
           "label": "都快考试了还去啥。",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "JP": -1
+          }
         }
       ]
     },
@@ -292,15 +373,24 @@
       "options": [
         {
           "label": "认同",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "JP": 1
+          }
         },
         {
           "label": "保持中立",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "JP": 0
+          }
         },
         {
           "label": "不认同",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "JP": -1
+          }
         }
       ]
     },
@@ -311,15 +401,24 @@
       "options": [
         {
           "label": "不认同",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "SN": -1
+          }
         },
         {
           "label": "中立",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "SN": 0
+          }
         },
         {
           "label": "认同",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "SN": 1
+          }
         }
       ]
     },
@@ -330,15 +429,24 @@
       "options": [
         {
           "label": "是这样的。",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "SN": -1
+          }
         },
         {
           "label": "也许是，也许不是。",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "SN": 0
+          }
         },
         {
           "label": "这简直是胡扯",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "SN": 1
+          }
         }
       ]
     },
@@ -349,15 +457,24 @@
       "options": [
         {
           "label": "不认同",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "JP": -1
+          }
         },
         {
           "label": "中立",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "JP": 0
+          }
         },
         {
           "label": "认同",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "JP": 1
+          }
         }
       ]
     },
@@ -368,15 +485,24 @@
       "options": [
         {
           "label": "再坐三十分钟看看，说不定就有了。",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "JP": -1
+          }
         },
         {
           "label": "用力拍打自己的屁股并说：“死屁股，快拉啊！”",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "JP": 0
+          }
         },
         {
           "label": "使用开塞露，快点拉出来才好。",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "JP": 1
+          }
         }
       ]
     },
@@ -387,15 +513,24 @@
       "options": [
         {
           "label": "不认同",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "TF": -1
+          }
         },
         {
           "label": "中立",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "TF": 0
+          }
         },
         {
           "label": "认同",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "TF": 1
+          }
         }
       ]
     },
@@ -406,15 +541,24 @@
       "options": [
         {
           "label": "反复思考后感觉应该选A？",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "TF": -1
+          }
         },
         {
           "label": "啊，要不选B？",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "TF": 0
+          }
         },
         {
           "label": "不会就选C？",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "TF": 1
+          }
         }
       ]
     },
@@ -425,15 +569,24 @@
       "options": [
         {
           "label": "我被逼到最后确实执行力超强。。。",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "JP": -1
+          }
         },
         {
           "label": "啊，有时候吧。",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "JP": 0
+          }
         },
         {
           "label": "是的，事情本来就该被推进",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "JP": 1
+          }
         }
       ]
     },
@@ -444,15 +597,24 @@
       "options": [
         {
           "label": "然而计划不如变化快。",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "JP": -1
+          }
         },
         {
           "label": "有时能完成，有时不能。",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "JP": 0
+          }
         },
         {
           "label": "我讨厌被打破计划。",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "JP": 1
+          }
         }
       ]
     },
@@ -463,15 +625,24 @@
       "options": [
         {
           "label": "网上口嗨下就算了，真见面还是有点忐忑。",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "EI": -1
+          }
         },
         {
           "label": "见网友也挺好，反正谁来聊我就聊两句。",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "EI": 0
+          }
         },
         {
           "label": "我会打扮一番并热情聊天，万一呢，我是说万一呢？",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "EI": 1
+          }
         }
       ]
     },
@@ -482,15 +653,24 @@
       "options": [
         {
           "label": "对“朋友的朋友”天然有点距离感，怕影响二人关系",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "EI": -1
+          }
         },
         {
           "label": "看对方，能玩就玩。",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "EI": 0
+          }
         },
         {
           "label": "朋友的朋友应该也算我的朋友！要热情聊天",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "EI": 1
+          }
         }
       ]
     },
@@ -539,15 +719,24 @@
       "options": [
         {
           "label": "这种情况较少。",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "EI": -1
+          }
         },
         {
           "label": "可能碍于情面或者关系。",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "EI": 0
+          }
         },
         {
           "label": "不想让别人知道自己是个阴暗的人。",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "EI": 1
+          }
         }
       ]
     },
@@ -558,15 +747,24 @@
       "options": [
         {
           "label": "不认同",
-          "value": 1
+          "value": 1,
+          "mbti": {
+            "EI": -1
+          }
         },
         {
           "label": "中立",
-          "value": 2
+          "value": 2,
+          "mbti": {
+            "EI": 0
+          }
         },
         {
           "label": "认同",
-          "value": 3
+          "value": 3,
+          "mbti": {
+            "EI": 1
+          }
         }
       ]
     }
@@ -613,6 +811,124 @@
         }
       ],
       "behavior": "Only shown if drink_gate_q1 == 3. If value 2 selected, DRUNK hidden personality is activated."
+    }
+  ],
+  "mbti": [
+    {
+      "id": "m2",
+      "dim": null,
+      "mbtiOnly": true,
+      "text": "到了一个全是陌生人的场合，你更倾向于：",
+      "options": [
+        {
+          "label": "先观察，等别人来找我聊",
+          "value": 0,
+          "mbti": {
+            "EI": -2
+          }
+        },
+        {
+          "label": "如果有合适的时机会搭话",
+          "value": 0,
+          "mbti": {
+            "EI": 0
+          }
+        },
+        {
+          "label": "主动出击，这不是认识新朋友的好机会嘛",
+          "value": 0,
+          "mbti": {
+            "EI": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "m3",
+      "dim": null,
+      "mbtiOnly": true,
+      "text": "看一部电影后，你更关注的是：",
+      "options": [
+        {
+          "label": "具体的剧情细节、场景和演技",
+          "value": 0,
+          "mbti": {
+            "SN": -2
+          }
+        },
+        {
+          "label": "都会注意到一些",
+          "value": 0,
+          "mbti": {
+            "SN": 0
+          }
+        },
+        {
+          "label": "背后的主题、隐喻和导演想表达的东西",
+          "value": 0,
+          "mbti": {
+            "SN": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "m5",
+      "dim": null,
+      "mbtiOnly": true,
+      "text": "做一个重要决定时，你更看重：",
+      "options": [
+        {
+          "label": "相关人的感受和关系的影响",
+          "value": 0,
+          "mbti": {
+            "TF": -2
+          }
+        },
+        {
+          "label": "两者都会考虑",
+          "value": 0,
+          "mbti": {
+            "TF": 0
+          }
+        },
+        {
+          "label": "客观的利弊分析和逻辑推理",
+          "value": 0,
+          "mbti": {
+            "TF": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "m7",
+      "dim": null,
+      "mbtiOnly": true,
+      "text": "出去旅行，你的风格更接近：",
+      "options": [
+        {
+          "label": "说走就走，到了再说",
+          "value": 0,
+          "mbti": {
+            "JP": -2
+          }
+        },
+        {
+          "label": "大致有个方向，细节随意",
+          "value": 0,
+          "mbti": {
+            "JP": 0
+          }
+        },
+        {
+          "label": "提前做好攻略，每天行程安排得明明白白",
+          "value": 0,
+          "mbti": {
+            "JP": 2
+          }
+        }
+      ]
     }
   ]
 }

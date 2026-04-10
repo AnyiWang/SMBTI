@@ -8,10 +8,10 @@ const LEVEL_LABEL = { L: '低', M: '中', H: '高' }
 /**
  * 生成分享卡片并下载
  */
-export async function generateShareImage(primary, userLevels, dimOrder, dimDefs, mode) {
+export async function generateShareImage(primary, userLevels, dimOrder, dimDefs, mode, smbti) {
   const dpr = 2
   const W = 720
-  const H = 1280
+  const H = smbti ? 1480 : 1280  // Taller if SMBTI fusion data present
   const canvas = document.createElement('canvas')
   canvas.width = W * dpr
   canvas.height = H * dpr
@@ -31,11 +31,75 @@ export async function generateShareImage(primary, userLevels, dimOrder, dimDefs,
 
   let y = cardY + 48
 
+  // ── SMBTI 融合区块 ──
+  if (smbti) {
+    ctx.textAlign = 'center'
+    ctx.font = '400 18px system-ui, "PingFang SC", "Microsoft YaHei", sans-serif'
+    ctx.fillStyle = '#6b7b6e'
+    ctx.fillText('🎭 你的 SMBTI 人格', W / 2, y)
+    y += 40
+
+    ctx.font = '900 40px system-ui, "PingFang SC", "Microsoft YaHei", sans-serif'
+    ctx.fillStyle = '#4c6752'
+    ctx.fillText(smbti.fusion.name, W / 2, y)
+    y += 34
+
+    ctx.font = '600 22px monospace, system-ui'
+    ctx.fillStyle = '#6b7b6e'
+    ctx.fillText(`${smbti.mbti.type} × ${primary.code}`, W / 2, y)
+    y += 26
+
+    ctx.font = '400 18px system-ui, "PingFang SC", "Microsoft YaHei", sans-serif'
+    ctx.fillStyle = '#6b7b6e'
+    ctx.fillText(smbti.fusion.subtitle, W / 2, y)
+    y += 32
+
+    // MBTI bars
+    const barX = cardX + 60, barW = cardW - 120
+    const p = smbti.mbti.percentages
+    const mbtiDims = [
+      { left: 'E', right: 'I', pct: p.E },
+      { left: 'N', right: 'S', pct: p.N },
+      { left: 'T', right: 'F', pct: p.T },
+      { left: 'J', right: 'P', pct: p.J },
+    ]
+    ctx.font = '600 16px system-ui, "PingFang SC", "Microsoft YaHei", sans-serif'
+    for (const d of mbtiDims) {
+      ctx.textAlign = 'right'
+      ctx.fillStyle = d.pct >= 50 ? '#4c6752' : '#aaa'
+      ctx.fillText(`${d.left} ${d.pct}%`, barX - 8, y + 4)
+      // track
+      roundRect(ctx, barX, y - 6, barW, 12, 6)
+      ctx.fillStyle = '#e8f0ea'
+      ctx.fill()
+      // fill
+      roundRect(ctx, barX, y - 6, barW * d.pct / 100, 12, 6)
+      ctx.fillStyle = '#4c6752'
+      ctx.fill()
+      ctx.textAlign = 'left'
+      ctx.fillStyle = d.pct < 50 ? '#4c6752' : '#aaa'
+      ctx.fillText(`${100 - d.pct}% ${d.right}`, barX + barW + 8, y + 4)
+      y += 24
+    }
+    y += 12
+
+    // Divider
+    ctx.beginPath()
+    ctx.moveTo(cardX + 40, y)
+    ctx.lineTo(cardX + cardW - 40, y)
+    ctx.strokeStyle = '#d8e0da'
+    ctx.lineWidth = 1
+    ctx.stroke()
+    y += 20
+  }
+
+  // ── SBTI 原始区块 ──
+
   // Kicker
   ctx.textAlign = 'center'
   ctx.font = '400 22px system-ui, "PingFang SC", "Microsoft YaHei", sans-serif'
   ctx.fillStyle = '#6b7b6e'
-  const kickerText = mode === 'drunk' ? '隐藏人格已激活' : mode === 'fallback' ? '系统强制兜底' : '你的主类型'
+  const kickerText = mode === 'drunk' ? '隐藏人格已激活' : mode === 'fallback' ? '系统强制兜底' : '你的 SBTI 类型'
   ctx.fillText(kickerText, W / 2, y)
   y += 56
 

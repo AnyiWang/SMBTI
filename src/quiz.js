@@ -4,7 +4,8 @@ import { shuffle, insertAtRandom, insertAfter } from './utils.js'
  * 答题控制器
  */
 export function createQuiz(questions, config, onComplete) {
-  const mainQuestions = shuffle(questions.main)
+  const allQuestions = [...questions.main, ...(questions.mbti || [])]
+  const mainQuestions = shuffle(allQuestions)
   const drinkGateQ1 = questions.special.find((q) => q.id === config.drinkGate.questionId)
   const drinkGateQ2 = questions.special.find((q) => q.id === 'drink_gate_q2')
 
@@ -71,7 +72,8 @@ export function createQuiz(questions, config, onComplete) {
     current = 0
     answers = {}
     isDrunk = false
-    queue = insertAtRandom(shuffle(questions.main), drinkGateQ1)
+    const all = [...questions.main, ...(questions.mbti || [])]
+    queue = insertAtRandom(shuffle(all), drinkGateQ1)
     renderQuestion()
   }
 

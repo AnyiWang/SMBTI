@@ -1,0 +1,18 @@
+[
+  { "code": "INTJ", "cn": "策划者", "tagline": "万物皆可优化，包括你" },
+  { "code": "INTP", "cn": "逻辑家", "tagline": "我不是在发呆，我在计算宇宙的熵" },
+  { "code": "ENTJ", "cn": "指挥官", "tagline": "方向盘在我手里，你坐好就行" },
+  { "code": "ENTP", "cn": "辩论家", "tagline": "我不是抬杠，我是在帮你完善论点" },
+  { "code": "INFJ", "cn": "提倡者", "tagline": "看透了人心还愿意相信人性" },
+  { "code": "INFP", "cn": "调停者", "tagline": "活在理想国里，偶尔出来买杯奶茶" },
+  { "code": "ENFJ", "cn": "主人公", "tagline": "你的人生导师已上线，请开始你的表演" },
+  { "code": "ENFP", "cn": "竞选者", "tagline": "全世界都是舞台，我是自带BGM的主角" },
+  { "code": "ISTJ", "cn": "物流师", "tagline": "规矩就是规矩，别跟我扯什么灵活变通" },
+  { "code": "ISFJ", "cn": "守卫者", "tagline": "我把全世界的人都操心了一遍，除了自己" },
+  { "code": "ESTJ", "cn": "总经理", "tagline": "谁说了不算？我说了算" },
+  { "code": "ESFJ", "cn": "执政官", "tagline": "你吃了吗？穿暖了吗？开心吗？来，我帮你安排" },
+  { "code": "ISTP", "cn": "鉴赏家", "tagline": "别废话，给我工具，我来修" },
+  { "code": "ISFP", "cn": "探险家", "tagline": "生活是一场即兴演出，剧本是什么？能吃吗？" },
+  { "code": "ESTP", "cn": "企业家", "tagline": "想到了就干，翻车了再说" },
+  { "code": "ESFP", "cn": "表演者", "tagline": "人生苦短，不如蹦迪" }
+]

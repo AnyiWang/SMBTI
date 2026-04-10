@@ -1,6 +1,66 @@
 /**
- * SBTI 评分引擎 — 纯函数，无 DOM 依赖
+ * SMBTI 评分引擎 — SBTI + MBTI 融合，纯函数，无 DOM 依赖
  */
+
+// ── MBTI 融合引擎 ──
+
+export function calcMBTIScores(answers, allQuestions) {
+  const scores = { EI: 0, SN: 0, TF: 0, JP: 0 }
+  for (const q of allQuestions) {
+    const val = answers[q.id]
+    if (val == null) continue
+    const opt = q.options.find((o) => o.value === val)
+    if (!opt?.mbti) continue
+    for (const [dim, weight] of Object.entries(opt.mbti)) {
+      scores[dim] = (scores[dim] || 0) + weight
+    }
+  }
+  return scores
+}
+
+export function deriveMBTIType(scores) {
+  const type =
+    (scores.EI >= 0 ? 'E' : 'I') +
+    (scores.SN >= 0 ? 'N' : 'S') +
+    (scores.TF >= 0 ? 'T' : 'F') +
+    (scores.JP >= 0 ? 'J' : 'P')
+  const pct = (score, maxRange) => {
+    const ratio = Math.min(1, Math.abs(score) / maxRange)
+    return Math.round(50 + ratio * 50)
+  }
+  return {
+    type,
+    percentages: {
+      E: scores.EI >= 0 ? pct(scores.EI, 10) : 100 - pct(scores.EI, 10),
+      N: scores.SN >= 0 ? pct(scores.SN, 10) : 100 - pct(scores.SN, 10),
+      T: scores.TF >= 0 ? pct(scores.TF, 8) : 100 - pct(scores.TF, 8),
+      J: scores.JP >= 0 ? pct(scores.JP, 10) : 100 - pct(scores.JP, 10),
+    },
+  }
+}
+
+export function generateFusionName(mbtiType, sbtiType, fusionData) {
+  const [e, n, t, j] = mbtiType.split('')
+  const m = fusionData.modifiers
+  const subtitle = `${m[e].prefix}${m[n].prefix}型${sbtiType.cn}`
+  const combo = fusionData.fusionTemplates[e + t] || fusionData.fusionTemplates[n + j] || ''
+  const name = combo ? `${combo}·${sbtiType.cn}` : subtitle
+  return { name, subtitle }
+}
+
+export function generateFusionDesc(mbtiType, sbtiType, fusionData) {
+  const [e, n, t, j] = mbtiType.split('')
+  const m = fusionData.modifiers
+  return (
+    `你是一个${m[e].flavor}的「${sbtiType.cn}」。` +
+    `\n在认知上，${m[n].flavor}；` +
+    `\n做决定时，${m[t].flavor}；` +
+    `\n面对计划，${m[j].flavor}。` +
+    `\n\n结合你的${sbtiType.code}人格——${sbtiType.intro}`
+  )
+}
+
+// ── SBTI 原始引擎 ──
 
 /**
  * 按维度求和：每维度 2 题，分值相加 (范围 2-6)

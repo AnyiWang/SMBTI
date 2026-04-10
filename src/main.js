@@ -1,4 +1,7 @@
-import { calcDimensionScores, scoresToLevels, determineResult } from './engine.js'
+import {
+  calcDimensionScores, scoresToLevels, determineResult,
+  calcMBTIScores, deriveMBTIType, generateFusionName, generateFusionDesc,
+} from './engine.js'
 import { createQuiz } from './quiz.js'
 import { renderResult } from './result.js'
 import './style.css'
@@ -9,11 +12,13 @@ async function loadJSON(path) {
 }
 
 async function init() {
-  const [questions, dimensions, types, config] = await Promise.all([
+  const [questions, dimensions, types, config, mbtiTypes, fusionData] = await Promise.all([
     loadJSON(new URL('../data/questions.json', import.meta.url).href),
     loadJSON(new URL('../data/dimensions.json', import.meta.url).href),
     loadJSON(new URL('../data/types.json', import.meta.url).href),
     loadJSON(new URL('../data/config.json', import.meta.url).href),
+    loadJSON(new URL('../data/mbti-types.json', import.meta.url).href),
+    loadJSON(new URL('../data/smbti-fusion.json', import.meta.url).href),
   ])
 
   const pages = {
@@ -32,7 +37,17 @@ async function init() {
     const scores = calcDimensionScores(answers, questions.main)
     const levels = scoresToLevels(scores, config.scoring.levelThresholds)
     const result = determineResult(levels, dimensions.order, types.standard, types.special, { isDrunk })
-    renderResult(result, levels, dimensions.order, dimensions.definitions, config)
+
+    const allQs = [...questions.main, ...(questions.mbti || [])]
+    const mbtiScores = calcMBTIScores(answers, allQs)
+    const mbtiResult = deriveMBTIType(mbtiScores)
+    const mbtiTypeInfo = mbtiTypes.find((t) => t.code === mbtiResult.type) || { code: mbtiResult.type, cn: '未知', tagline: '' }
+    const fusion = generateFusionName(mbtiResult.type, result.primary, fusionData)
+    const fusionDesc = generateFusionDesc(mbtiResult.type, result.primary, fusionData)
+
+    renderResult(result, levels, dimensions.order, dimensions.definitions, config, {
+      mbti: mbtiResult, mbtiTypeInfo, fusion, fusionDesc,
+    })
     showPage('result')
   }
 
