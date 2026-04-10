@@ -10,7 +10,7 @@
 
 ## 在线体验
 
-👉 [点击开始测试](https://anyiwang.github.io/SBTI/)
+👉 [点击开始测试](https://anyiwang.github.io/SMBTI/)
 
 ## SMBTI = SBTI × MBTI
 
@@ -75,7 +75,7 @@
 ## 快速开始
 
 ```bash
-git clone https://github.com/AnyiWang/SBTI.git
+git clone https://github.com/AnyiWang/SMBTI.git
 cd SBTI
 npm install
 npm run dev
